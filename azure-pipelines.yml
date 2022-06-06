@@ -48,13 +48,13 @@ steps:
       projects: '$(TestProjects)'
       arguments: '--configuration $(BuildConfiguration)'
 
-  - task: VSBuild@1
+  - task: MSBuild@1
     displayName: 'Build Database Project'
     inputs:
       solution: ProductAppSampleDB/ProductAppSampleDB.sqlproj
       platform: 'Any CPU'
       configuration: '$(BuildConfiguration)'
-
+  
   - task: CopyFiles@2
     displayName: 'Copy ProductAppSampleDB dacpac to release'
     inputs:
